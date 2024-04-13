@@ -3,8 +3,15 @@ const app = express();
 const cors = require("cors");
 const mongoose = require("mongoose");
 const path = require("path");
+const http = require("http");
 
-const port = 3000;
+const port = 5325;
+const hostname = "0.0.0.0";
+const server = http.createServer(app);
+// ====== SERVER LISTEING =======
+server.listen(port, hostname, (req, res)=> {
+  console.log(`http://${hostname}:${port}`);
+});
 
 app.use(express.json());
 app.use(cors());
@@ -33,6 +40,3 @@ app.post("/register", async(req, res)=>{
   console.log(user);
 })
 
-app.listen(port, ()=>{
-  console.log(`http://localhost:${port}`)
-})
