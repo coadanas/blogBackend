@@ -38,5 +38,8 @@ app.post("/register", async(req, res)=>{
   let obj = req.body;
   let user = await userModel.create(obj);
   console.log(user);
+  res.json({
+data: user
+  }) 
 })
 
