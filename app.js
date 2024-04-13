@@ -31,7 +31,7 @@ const userSchema = mongoose.Schema({
 const userModel = mongoose.model("userModel", userSchema);
 
 app.get("/", (req, res) => {
-  res.send("blog backend...... ") ;
+  res.sendFile(path.join(__dirname, "public", "index.html"));
 });
 
 app.post("/register", async(req, res)=>{
